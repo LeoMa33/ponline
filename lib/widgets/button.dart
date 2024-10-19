@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 enum ButtonType {
   COLORED,
@@ -48,7 +49,7 @@ class _CustomButtonState extends State<CustomButton> {
               children: [
                 Text(
                   widget.title.toUpperCase(),
-                  style: TextStyle(
+                  style: GoogleFonts.raleway(
                       color: widget.type == ButtonType.COLORED
                           ? Colors.white
                           : const Color(0xFF232A35),

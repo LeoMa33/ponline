@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class CustomHeader extends StatefulWidget {
   const CustomHeader({this.isBackButtonEnable = false, super.key});
@@ -20,7 +22,9 @@ class _CustomHeaderState extends State<CustomHeader> {
           child: IconButton(
             icon: const Icon(Icons.arrow_back_ios),
             color: Colors.white,
-            onPressed: () {},
+            onPressed: () {
+              context.pop();
+            },
           ),
         ),
         Row(
@@ -35,19 +39,19 @@ class _CustomHeaderState extends State<CustomHeader> {
                   borderRadius: BorderRadius.circular(25),
                 ),
               ),
-              child: const Row(
+              child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Icon(
+                  const Icon(
                     Icons.monetization_on,
                     color: Color(0xFF7253A0),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 10,
                   ),
                   Text(
                     '120',
-                    style: TextStyle(
+                    style: GoogleFonts.raleway(
                       color: Colors.white,
                       fontSize: 14,
                     ),

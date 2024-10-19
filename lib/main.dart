@@ -25,7 +25,6 @@ class _MyAppState extends ConsumerState<MyApp> {
       debugShowCheckedModeBanner: false,
       routerConfig: router,
       theme: ThemeData(
-        fontFamily: 'Raleway',
         useMaterial3: true,
         appBarTheme: const AppBarTheme(
           scrolledUnderElevation: 0,
@@ -33,22 +32,21 @@ class _MyAppState extends ConsumerState<MyApp> {
       ),
       builder: (BuildContext context, Widget? child) {
         return Scaffold(
-            body: Container(
-                width: double.infinity,
-                height: double.infinity,
-                decoration: const BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment(0.21, -0.98),
-                    end: Alignment(-0.21, 0.98),
-                    colors: [Color(0xFF232A35), Color(0xFF080A14)],
-                  ),
-                ),
-                child: SafeArea(
-                    child: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 50, horizontal: 30),
-                  child: child!,
-                ))));
+          body: Container(
+            width: double.infinity,
+            height: double.infinity,
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment(0.21, -0.98),
+                end: Alignment(-0.21, 0.98),
+                colors: [Color(0xFF232A35), Color(0xFF080A14)],
+              ),
+            ),
+            child: SafeArea(
+              child: child!,
+            ),
+          ),
+        );
       },
     );
   }
