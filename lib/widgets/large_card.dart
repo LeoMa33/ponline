@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class DailyGamemodeCard extends StatelessWidget {
-  const DailyGamemodeCard({this.onTap, super.key});
+class LargeCard extends StatelessWidget {
+  const LargeCard(
+      {required this.title,
+      required this.subtitle,
+      required this.icon,
+      this.onTap,
+      super.key});
 
+  final String title;
+  final String subtitle;
+  final Icon icon;
   final void Function()? onTap;
 
   @override
@@ -27,10 +35,7 @@ class DailyGamemodeCard extends StatelessWidget {
               const EdgeInsets.only(left: 20, right: 25, top: 10, bottom: 10),
           child: Row(
             children: [
-              const Icon(
-                Icons.calendar_month,
-                color: Colors.white,
-              ),
+              icon,
               const SizedBox(
                 width: 10,
               ),
@@ -40,14 +45,14 @@ class DailyGamemodeCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Relevez 3 défis',
+                      title,
                       style: GoogleFonts.raleway(
                           color: Colors.white,
                           fontSize: 14,
                           fontWeight: FontWeight.w600),
                     ),
                     Text(
-                      'Des iris au bout du 3ème jour',
+                      subtitle,
                       style: GoogleFonts.raleway(
                         color: Colors.white,
                         fontSize: 12,

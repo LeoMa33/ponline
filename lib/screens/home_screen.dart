@@ -1,16 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ponline/widgets/button.dart';
 import 'package:ponline/widgets/header.dart';
 
-class HomeScreen extends StatelessWidget {
+import '/provider/game_settings_provider.dart';
+
+class HomeScreen extends ConsumerWidget {
   const HomeScreen({
     super.key,
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    GameSettings gameSettings = ref.read(gameSettingsProvider.notifier).get();
+
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 30),
       child: Column(
@@ -88,8 +93,9 @@ class HomeScreen extends StatelessWidget {
               CustomButton(
                 title: 'Jouer seul',
                 onTap: () => {
-                  context.pushNamed('gamemode',
-                      pathParameters: {'nbPlayer': 'SOLITAIRE'})
+                  gameSettings.playerNumber = PlayerNumberEnum.SOLITAIRE,
+                  ref.read(gameSettingsProvider.notifier).set(gameSettings),
+                  context.pushNamed('gamemode'),
                 },
               ),
               const SizedBox(

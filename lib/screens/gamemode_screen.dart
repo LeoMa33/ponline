@@ -1,23 +1,27 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:ponline/widgets/daily_gamemode_card.dart';
+import 'package:ponline/provider/game_settings_provider.dart';
 import 'package:ponline/widgets/gamemode_card.dart';
 import 'package:ponline/widgets/header.dart';
 import 'package:ponline/widgets/section_title.dart';
 
-class GamemodeScreen extends StatefulWidget {
-  const GamemodeScreen({required this.gamemode, super.key});
+import '../widgets/large_card.dart';
 
-  final String gamemode;
+class GamemodeScreen extends ConsumerStatefulWidget {
+  const GamemodeScreen({super.key});
 
   @override
-  State<GamemodeScreen> createState() => _GamemodeScreenState();
+  ConsumerState<GamemodeScreen> createState() => _GamemodeScreenState();
 }
 
-class _GamemodeScreenState extends State<GamemodeScreen> {
+class _GamemodeScreenState extends ConsumerState<GamemodeScreen> {
   @override
   Widget build(BuildContext context) {
+    GameSettings gameSettings = ref.read(gameSettingsProvider.notifier).get();
+
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 30),
       child: Column(
@@ -63,7 +67,7 @@ class _GamemodeScreenState extends State<GamemodeScreen> {
                 child: Row(
                   children: [
                     Text(
-                      '2',
+                      '-',
                       style: GoogleFonts.raleway(
                           color: Colors.white, fontSize: 14),
                     ),
@@ -83,35 +87,49 @@ class _GamemodeScreenState extends State<GamemodeScreen> {
               ),
               const Padding(
                 padding: EdgeInsets.all(10),
-                child: DailyGamemodeCard(),
+                child: LargeCard(
+                  title: 'Relevez 3 défis',
+                  subtitle: 'Des iris au bout du 3ème jour',
+                  icon: Icon(
+                    Icons.calendar_month,
+                    color: Colors.white,
+                  ),
+                ),
               ),
             ],
           ),
           const SizedBox(
             height: 30,
           ),
-          const Column(
+          Column(
             children: [
-              SectionTitle(title: 'Mode de jeux'),
-              SizedBox(
+              const SectionTitle(title: 'Mode de jeux'),
+              const SizedBox(
                 height: 10,
               ),
               Padding(
-                padding: EdgeInsets.all(10.0),
+                padding: const EdgeInsets.all(10.0),
                 child: Row(
                   children: [
                     GamemodeCard(
                       title: 'Aveugle',
-                      icon: Icon(
+                      icon: const Icon(
                         CupertinoIcons.eye_slash_fill,
                         size: 40,
                         color: Color(0xFF7253A0),
                       ),
+                      onTap: () => {
+                        gameSettings.gamemode = GamemodeEnum.AVEUGLE,
+                        ref
+                            .read(gameSettingsProvider.notifier)
+                            .set(gameSettings),
+                        context.pushNamed('tutorial'),
+                      },
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
-                    GamemodeCard(
+                    const GamemodeCard(
                       title: 'Flash',
                       icon: Icon(
                         Icons.flash_on,
