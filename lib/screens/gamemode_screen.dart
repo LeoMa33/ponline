@@ -5,7 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ponline/provider/game_settings_provider.dart';
 import 'package:ponline/widgets/gamemode_card.dart';
-import 'package:ponline/widgets/header.dart';
+import 'package:ponline/widgets/header/header.dart';
 import 'package:ponline/widgets/section_title.dart';
 
 import '../widgets/large_card.dart';
@@ -68,8 +68,7 @@ class _GamemodeScreenState extends ConsumerState<GamemodeScreen> {
                   children: [
                     Text(
                       '-',
-                      style: GoogleFonts.raleway(
-                          color: Colors.white, fontSize: 14),
+                      style: GoogleFonts.raleway(color: Colors.white, fontSize: 14),
                     ),
                     const SizedBox(
                       width: 5,
@@ -120,9 +119,7 @@ class _GamemodeScreenState extends ConsumerState<GamemodeScreen> {
                       ),
                       onTap: () => {
                         gameSettings.gamemode = GamemodeEnum.AVEUGLE,
-                        ref
-                            .read(gameSettingsProvider.notifier)
-                            .set(gameSettings),
+                        ref.read(gameSettingsProvider.notifier).set(gameSettings),
                         context.pushNamed('tutorial'),
                       },
                     ),

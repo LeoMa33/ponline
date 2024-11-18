@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ponline/widgets/button.dart';
-import 'package:ponline/widgets/header.dart';
+import 'package:ponline/widgets/header/header.dart';
 
 import '/provider/game_settings_provider.dart';
 
@@ -52,10 +52,7 @@ class HomeScreen extends ConsumerWidget {
                           fontSize: 14,
                         ),
                       ),
-                      TextSpan(
-                          text: 'Ponline',
-                          style:
-                              GoogleFonts.raleway(fontWeight: FontWeight.bold)),
+                      TextSpan(text: 'Ponline', style: GoogleFonts.raleway(fontWeight: FontWeight.bold)),
                       TextSpan(
                         text: ', travailles ta ',
                         style: GoogleFonts.raleway(
@@ -63,10 +60,7 @@ class HomeScreen extends ConsumerWidget {
                           fontSize: 14,
                         ),
                       ),
-                      TextSpan(
-                          text: 'mémoire ',
-                          style:
-                              GoogleFonts.raleway(fontWeight: FontWeight.bold)),
+                      TextSpan(text: 'mémoire ', style: GoogleFonts.raleway(fontWeight: FontWeight.bold)),
                       TextSpan(
                         text: '\ntout en ',
                         style: GoogleFonts.raleway(
@@ -74,10 +68,7 @@ class HomeScreen extends ConsumerWidget {
                           fontSize: 14,
                         ),
                       ),
-                      TextSpan(
-                          text: "t'amusant !",
-                          style:
-                              GoogleFonts.raleway(fontWeight: FontWeight.bold)),
+                      TextSpan(text: "t'amusant !", style: GoogleFonts.raleway(fontWeight: FontWeight.bold)),
                     ],
                   ),
                   style: GoogleFonts.raleway(color: Colors.white, fontSize: 14),

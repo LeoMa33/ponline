@@ -5,7 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '/provider/game_settings_provider.dart';
 import '/widgets/button.dart';
-import '/widgets/header.dart';
+import '../widgets/header/header.dart';
 
 class TutorialScreen extends ConsumerWidget {
   const TutorialScreen({super.key});
@@ -49,8 +49,7 @@ class TutorialScreen extends ConsumerWidget {
                     ),
                     Text(
                       'Dans ce mode de jeu vous devrez trouver toutes les paires possible sans avoir limite de temps ni de vies. Toutes les cartes sont face caché au début de la partie.',
-                      style: GoogleFonts.raleway(
-                          color: Colors.white, fontSize: 14),
+                      style: GoogleFonts.raleway(color: Colors.white, fontSize: 14),
                     ),
                   ],
                 ),

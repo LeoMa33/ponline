@@ -6,7 +6,7 @@ import 'package:ponline/router.dart';
 
 import '../provider/game_settings_provider.dart';
 import '../widgets/gamemode_card.dart';
-import '../widgets/header.dart';
+import '../widgets/header/header.dart';
 import '../widgets/large_card.dart';
 import '../widgets/section_title.dart';
 
@@ -79,15 +79,10 @@ class _SetupScreenState extends ConsumerState<SetupScreen> {
                                   color: Color(0xFF7253A0),
                                 ),
                                 onTap: () => {
-                                  ref
-                                      .read(gameCardsProvider.notifier)
-                                      .set(generateCards(PairNumberEnum.FOUR)),
+                                  ref.read(gameCardsProvider.notifier).set(generateCards(PairNumberEnum.FOUR)),
                                   gameSettings.pairNumber = PairNumberEnum.FOUR,
-                                  ref
-                                      .read(gameSettingsProvider.notifier)
-                                      .set(gameSettings),
-                                  context.pushReplacementNamed(
-                                      AppRoute.gameboard.name),
+                                  ref.read(gameSettingsProvider.notifier).set(gameSettings),
+                                  context.pushReplacementNamed(AppRoute.gameboard.name),
                                 },
                               ),
                               const SizedBox(
@@ -101,16 +96,10 @@ class _SetupScreenState extends ConsumerState<SetupScreen> {
                                   color: Color(0xFF7253A0),
                                 ),
                                 onTap: () => {
-                                  ref
-                                      .read(gameCardsProvider.notifier)
-                                      .set(generateCards(PairNumberEnum.EIGHT)),
-                                  gameSettings.pairNumber =
-                                      PairNumberEnum.EIGHT,
-                                  ref
-                                      .read(gameSettingsProvider.notifier)
-                                      .set(gameSettings),
-                                  context.pushReplacementNamed(
-                                      AppRoute.gameboard.name),
+                                  ref.read(gameCardsProvider.notifier).set(generateCards(PairNumberEnum.EIGHT)),
+                                  gameSettings.pairNumber = PairNumberEnum.EIGHT,
+                                  ref.read(gameSettingsProvider.notifier).set(gameSettings),
+                                  context.pushReplacementNamed(AppRoute.gameboard.name),
                                 },
                               ),
                             ],
@@ -128,15 +117,10 @@ class _SetupScreenState extends ConsumerState<SetupScreen> {
                                   color: Color(0xFF7253A0),
                                 ),
                                 onTap: () => {
-                                  ref
-                                      .read(gameCardsProvider.notifier)
-                                      .set(generateCards(PairNumberEnum.TEN)),
+                                  ref.read(gameCardsProvider.notifier).set(generateCards(PairNumberEnum.TEN)),
                                   gameSettings.pairNumber = PairNumberEnum.TEN,
-                                  ref
-                                      .read(gameSettingsProvider.notifier)
-                                      .set(gameSettings),
-                                  context.pushReplacementNamed(
-                                      AppRoute.gameboard.name),
+                                  ref.read(gameSettingsProvider.notifier).set(gameSettings),
+                                  context.pushReplacementNamed(AppRoute.gameboard.name),
                                 },
                               ),
                               const SizedBox(
@@ -150,15 +134,10 @@ class _SetupScreenState extends ConsumerState<SetupScreen> {
                                   color: Color(0xFF7253A0),
                                 ),
                                 onTap: () => {
-                                  ref.read(gameCardsProvider.notifier).set(
-                                      generateCards(PairNumberEnum.FIFTEEN)),
-                                  gameSettings.pairNumber =
-                                      PairNumberEnum.FIFTEEN,
-                                  ref
-                                      .read(gameSettingsProvider.notifier)
-                                      .set(gameSettings),
-                                  context.pushReplacementNamed(
-                                      AppRoute.gameboard.name),
+                                  ref.read(gameCardsProvider.notifier).set(generateCards(PairNumberEnum.FIFTEEN)),
+                                  gameSettings.pairNumber = PairNumberEnum.FIFTEEN,
+                                  ref.read(gameSettingsProvider.notifier).set(gameSettings),
+                                  context.pushReplacementNamed(AppRoute.gameboard.name),
                                 },
                               ),
                             ],

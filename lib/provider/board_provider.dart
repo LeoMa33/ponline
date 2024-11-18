@@ -17,10 +17,10 @@ class GameCard {
   bool isFlip = false;
   bool isVisible = true;
 
-  GameCard(
-      {required this.coupleIndex, required this.color, required this.label});
+  GameCard({required this.coupleIndex, required this.color, required this.label});
 
   void toogleFlip() => isFlip = !isFlip;
+  void hide() => isVisible = false;
 }
 
 class BoardNotifier extends Notifier<List<GameCard>> {
@@ -38,17 +38,32 @@ class BoardNotifier extends Notifier<List<GameCard>> {
     state.shuffle();
   }
 
+  void valideCouple() {
+    List<GameCard> tmp = [];
+    for (var card in state) {
+      if (card.isFlip) {
+        card.hide();
+        card.toogleFlip();
+      }
+      tmp.add(card);
+    }
+
+    state = tmp;
+  }
+
   void flipAll() {
-    state = state.map((toElement)=>{
-      if (toElement.isFlip) toElement.toogleFlip(),
-      return toElement}).toList(),
+    List<GameCard> tmp = [];
+    for (var card in state) {
+      if (card.isFlip) card.toogleFlip();
+      tmp.add(card);
+    }
+
+    state = tmp;
   }
 
   void clear() {
     state = [];
   }
-
-  List<GameCard> get() => state;
 }
 
 final NotifierProvider<BoardNotifier, List<GameCard>> gameCardsProvider =

@@ -27,10 +27,14 @@ class GameSettings {
   GamemodeEnum? gamemode;
   PlayerNumberEnum? playerNumber;
   PairNumberEnum? pairNumber;
+  int pairFind = 0;
 }
 
-class GameSettingsNotifier extends StateNotifier<GameSettings> {
-  GameSettingsNotifier() : super(GameSettings());
+class GameSettingsNotifier extends Notifier<GameSettings> {
+  @override
+  GameSettings build() {
+    return GameSettings();
+  }
 
   void set(GameSettings gameSettings) {
     state = gameSettings;
@@ -43,8 +47,5 @@ class GameSettingsNotifier extends StateNotifier<GameSettings> {
   GameSettings get() => state;
 }
 
-final gameSettingsProvider = StateNotifierProvider(
-  (ref) {
-    return GameSettingsNotifier();
-  },
-);
+final NotifierProvider<GameSettingsNotifier, GameSettings> gameSettingsProvider =
+    NotifierProvider<GameSettingsNotifier, GameSettings>(GameSettingsNotifier.new);
