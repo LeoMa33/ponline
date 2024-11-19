@@ -28,6 +28,27 @@ class GameSettings {
   PlayerNumberEnum? playerNumber;
   PairNumberEnum? pairNumber;
   int pairFind = 0;
+
+  GameSettings({
+    this.gamemode,
+    this.playerNumber,
+    this.pairNumber,
+    this.pairFind = 0,
+  });
+
+  GameSettings copyWith({
+    GamemodeEnum? gamemode,
+    PlayerNumberEnum? playerNumber,
+    PairNumberEnum? pairNumber,
+    int? pairFind,
+  }) {
+    return GameSettings(
+      gamemode: gamemode ?? this.gamemode,
+      playerNumber: playerNumber ?? this.playerNumber,
+      pairNumber: pairNumber ?? this.pairNumber,
+      pairFind: pairFind ?? this.pairFind,
+    );
+  }
 }
 
 class GameSettingsNotifier extends Notifier<GameSettings> {
@@ -42,6 +63,10 @@ class GameSettingsNotifier extends Notifier<GameSettings> {
 
   void clear() {
     state = GameSettings();
+  }
+
+  void addOnePair() {
+    state = state.copyWith(pairFind: state.pairFind + 1);
   }
 
   GameSettings get() => state;

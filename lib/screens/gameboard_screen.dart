@@ -45,9 +45,11 @@ class _GameboardScreenState extends ConsumerState<GameboardScreen> {
             () {
               if (flipedCard.every((card) => card.coupleIndex == coupleIndex)) {
                 ref.read(gameCardsProvider.notifier).valideCouple();
-                gameSettings.pairFind += 1;
+                ref.read(gameSettingsProvider.notifier).addOnePair();
 
                 if (gameSettings.pairFind == gameSettings.pairNumber!.number) {
+                  gameSettings.pairFind = 0;
+                  ref.read(gameSettingsProvider.notifier).set(gameSettings);
                   if (context.mounted) {
                     context.pop();
                   }
@@ -65,10 +67,7 @@ class _GameboardScreenState extends ConsumerState<GameboardScreen> {
       padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 30),
       child: Column(
         children: [
-          const CustomInGameHeader(
-            isBackButtonEnable: true,
-            isProfilEnable: false,
-          ),
+          const CustomInGameHeader(),
           Expanded(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
