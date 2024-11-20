@@ -21,8 +21,40 @@ class _GameboardScreenState extends ConsumerState<GameboardScreen> {
   void initState() {
     super.initState();
 
+    GameSettings gameSettings = ref.read(gameSettingsProvider.notifier).get();
+
     ref.read(gameCardsProvider.notifier).shuffle();
     gameCards = ref.read(gameCardsProvider);
+
+    switch (gameSettings.gamemode) {
+      case null:
+      case GamemodeEnum.DAILY:
+      case GamemodeEnum.AVEUGLE:
+      case GamemodeEnum.FLASH:
+        setState(
+          () {
+            gameCards = gameCards.map((card) {
+              card.isFlip = true;
+              return card;
+            }).toList();
+          },
+        );
+        Future.delayed(
+          const Duration(
+            milliseconds: 800,
+          ),
+          () => {
+            setState(
+              () {
+                gameCards = gameCards.map((card) {
+                  card.isFlip = false;
+                  return card;
+                }).toList();
+              },
+            )
+          },
+        );
+    }
   }
 
   @override

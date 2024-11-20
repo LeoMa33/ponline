@@ -126,13 +126,18 @@ class _GamemodeScreenState extends ConsumerState<GamemodeScreen> {
                     const SizedBox(
                       width: 10,
                     ),
-                    const GamemodeCard(
+                    GamemodeCard(
                       title: 'Flash',
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.flash_on,
                         size: 40,
                         color: Color(0xFFFFC400),
                       ),
+                      onTap: () => {
+                        gameSettings.gamemode = GamemodeEnum.FLASH,
+                        ref.read(gameSettingsProvider.notifier).set(gameSettings),
+                        context.pushNamed('tutorial'),
+                      },
                     ),
                   ],
                 ),

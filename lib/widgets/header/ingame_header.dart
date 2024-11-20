@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ponline/widgets/user_pair.dart';
 
-import '../../provider/game_settings_provider.dart';
+import '/provider/game_settings_provider.dart';
 
 class CustomInGameHeader extends ConsumerStatefulWidget {
   const CustomInGameHeader({super.key});
