@@ -2,16 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class LargeCard extends StatelessWidget {
-  const LargeCard(
-      {required this.title,
-      required this.subtitle,
-      required this.icon,
-      this.onTap,
-      super.key});
+  const LargeCard({required this.title, required this.subtitle, this.icon, this.imageIcon, this.onTap, super.key});
 
   final String title;
   final String subtitle;
-  final Icon icon;
+  final Icon? icon;
+  final ImageIcon? imageIcon;
   final void Function()? onTap;
 
   @override
@@ -31,11 +27,10 @@ class LargeCard extends StatelessWidget {
           ),
         ),
         child: Padding(
-          padding:
-              const EdgeInsets.only(left: 20, right: 25, top: 10, bottom: 10),
+          padding: const EdgeInsets.only(left: 20, right: 25, top: 10, bottom: 10),
           child: Row(
             children: [
-              icon,
+              icon ?? imageIcon!,
               const SizedBox(
                 width: 10,
               ),
@@ -46,10 +41,7 @@ class LargeCard extends StatelessWidget {
                   children: [
                     Text(
                       title,
-                      style: GoogleFonts.raleway(
-                          color: Colors.white,
-                          fontSize: 14,
-                          fontWeight: FontWeight.w600),
+                      style: GoogleFonts.raleway(color: Colors.white, fontSize: 14, fontWeight: FontWeight.w600),
                     ),
                     Text(
                       subtitle,

@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class GamemodeCard extends StatelessWidget {
-  const GamemodeCard(
-      {required this.title, required this.icon, this.onTap, super.key});
+  const GamemodeCard({required this.title, this.icon, this.imageIcon, this.onTap, super.key});
 
   final String title;
-  final Icon icon;
+  final Icon? icon;
+  final ImageIcon? imageIcon;
   final void Function()? onTap;
 
   @override
@@ -33,15 +33,14 @@ class GamemodeCard extends StatelessWidget {
                   Column(
                     children: [
                       Expanded(
-                        child: icon,
+                        child: icon ?? imageIcon!,
                       ),
                       const SizedBox(
                         height: 10,
                       ),
                       Text(
                         title,
-                        style: GoogleFonts.raleway(
-                            color: Colors.white, fontWeight: FontWeight.w600),
+                        style: GoogleFonts.raleway(color: Colors.white, fontWeight: FontWeight.w600),
                       ),
                     ],
                   ),

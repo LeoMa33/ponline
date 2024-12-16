@@ -3,8 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CustomHeader extends StatefulWidget {
-  const CustomHeader(
-      {this.isBackButtonEnable = false, this.isProfilEnable = true, super.key});
+  const CustomHeader({this.isBackButtonEnable = false, this.isProfilEnable = true, super.key});
 
   final bool isBackButtonEnable;
   final bool isProfilEnable;
@@ -46,15 +45,15 @@ class _CustomHeaderState extends State<CustomHeader> {
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    const Icon(
-                      Icons.monetization_on,
+                    const ImageIcon(
+                      AssetImage('assets/iris.png'),
                       color: Color(0xFF7253A0),
                     ),
                     const SizedBox(
                       width: 10,
                     ),
                     Text(
-                      '120',
+                      '-',
                       style: GoogleFonts.raleway(
                         color: Colors.white,
                         fontSize: 14,

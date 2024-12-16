@@ -44,8 +44,11 @@ class _CustomInGameHeaderState extends ConsumerState<CustomInGameHeader> {
             ),
           ],
         ),
-        UserPair(
-          pairCount: gameSettings.pairFind,
+        Visibility(
+          visible: false,
+          child: UserPair(
+            pairCount: gameSettings.pairFind,
+          ),
         ),
       ],
     );

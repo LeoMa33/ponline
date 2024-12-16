@@ -46,9 +46,10 @@ class _SetupScreenState extends ConsumerState<SetupScreen> {
                       child: LargeCard(
                         title: 'Classique',
                         subtitle: 'Modifier le style de vos cartes',
-                        icon: Icon(
-                          Icons.sd_card_alert_rounded,
+                        imageIcon: ImageIcon(
+                          AssetImage('assets/card.png'),
                           color: Colors.white,
+                          size: 25,
                         ),
                       ),
                     ),
@@ -73,9 +74,9 @@ class _SetupScreenState extends ConsumerState<SetupScreen> {
                             children: [
                               GamemodeCard(
                                 title: '4 Paires',
-                                icon: const Icon(
-                                  Icons.difference,
-                                  size: 40,
+                                imageIcon: const ImageIcon(
+                                  AssetImage('assets/pair.png'),
+                                  size: 50,
                                   color: Color(0xFF7253A0),
                                 ),
                                 onTap: () => {
@@ -90,9 +91,9 @@ class _SetupScreenState extends ConsumerState<SetupScreen> {
                               ),
                               GamemodeCard(
                                 title: '8 Paires',
-                                icon: const Icon(
-                                  Icons.difference,
-                                  size: 40,
+                                imageIcon: const ImageIcon(
+                                  AssetImage('assets/pair.png'),
+                                  size: 50,
                                   color: Color(0xFF7253A0),
                                 ),
                                 onTap: () => {
@@ -111,9 +112,9 @@ class _SetupScreenState extends ConsumerState<SetupScreen> {
                             children: [
                               GamemodeCard(
                                 title: '10 Paires',
-                                icon: const Icon(
-                                  Icons.difference,
-                                  size: 40,
+                                imageIcon: const ImageIcon(
+                                  AssetImage('assets/pair.png'),
+                                  size: 50,
                                   color: Color(0xFF7253A0),
                                 ),
                                 onTap: () => {
@@ -128,9 +129,9 @@ class _SetupScreenState extends ConsumerState<SetupScreen> {
                               ),
                               GamemodeCard(
                                 title: '15 Paires',
-                                icon: const Icon(
-                                  Icons.difference,
-                                  size: 40,
+                                imageIcon: const ImageIcon(
+                                  AssetImage('assets/pair.png'),
+                                  size: 50,
                                   color: Color(0xFF7253A0),
                                 ),
                                 onTap: () => {
